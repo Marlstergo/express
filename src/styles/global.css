@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.section4{
+  background-image: url('./image.jpg');
+  /* background: fixed; */
+  background-attachment: fixed;
+}
+.section1{
+  background-image: url('./image1.jpg');
+  background-attachment: fixed;
+}
+
+h1{
+  font-size: 80px;
+}

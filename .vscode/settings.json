@@ -1,0 +1,70 @@
+/*
+
+This approach follows the recommendation from
+https://prettier.io/docs/en/integrating-with-linters.html
+So Prettier is used separately from ESLint and
+therefore VSCode has to execute these tools consecutively while saving.
+
+To change the order of this execution:
+https://github.com/rohit-gohri/vscode-format-code-action
+  https://code.visualstudio.com/updates/v1_23#_run-code-actions-on-save
+  https://rohit.page/blog/posts/how-to-get-prettier-eslint-play-nicely-with-vscode/
+
+// TODO:
+https://github.com/mdx-js/eslint-mdx
+https://github.com/mdx-js/vscode-mdx
+
+*/
+
+{
+  // Tailwind CSS
+  // https://github.com/ben-rogerson/twin.macro/discussions/227
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.autoClosingQuotes": "always",
+  // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/129#issuecomment-735915659
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw=\"([^\"]*)", // <div tw="..." />
+    "tw={\"([^\"}]*)", // <div tw={"..."} />
+    "tw\\.\\w+`([^`]*)", // tw.xxx`...`
+    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+
+  // Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+
+  // ESLint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    // "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    // "markdown",
+    // "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // Git
+  "git.allowForcePush": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2E2F0E",
+    "titleBar.activeBackground": "#404214",
+    "titleBar.activeForeground": "#FBFBF2"
+  }
+}
